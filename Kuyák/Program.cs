@@ -66,10 +66,14 @@ internal class Program
         atlag /= kutyak.Count();
         Console.WriteLine($"6. feladat: Kutyák átlag életkora: {Math.Round(atlag, 2)}");
 
-        Kutyak legidosebb = kutyak[];
+        Kutyak legidosebb = kutyak[0];
         foreach (var kutya in kutyak)
         {
-            atlag += kutya.Eletkor;
+            if (legidosebb.Eletkor < kutya.Eletkor)
+            {
+                legidosebb = kutya;
+            }
         }
+        Console.WriteLine($"7. feladat: A legidősebb kutya neve és fajtája: {legidosebb.Nev}, {legidosebb.Fajta}");
     }
 }
